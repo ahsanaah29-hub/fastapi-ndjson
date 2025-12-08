@@ -164,10 +164,5 @@ async def convert_daybook_ndjson(file: UploadFile = File(...)):
 # ---------------------------
 # Start server on Port 8001
 # ---------------------------
-def start_server():
-    uvicorn.run(app, host="0.0.0.0", port=8002)
 
-thread = threading.Thread(target=start_server, daemon=True)
-thread.start()
 
-print("🚀 FastAPI server started on http://localhost:8002")
