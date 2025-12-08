@@ -1,3 +1,6 @@
 fastapi
 uvicorn
 nest_asyncio
+python-multipart
+
+
