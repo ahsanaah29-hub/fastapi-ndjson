@@ -127,7 +127,8 @@ def extract_vouchers(json_data):
 # ---------------------------
 # NDJSON output folder
 # ---------------------------
-NDJSON_FOLDER = "ndjson_output"
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))  # absolute folder where this .py file is located
+NDJSON_FOLDER = os.path.join(BASE_DIR, "ndjson_output")
 os.makedirs(NDJSON_FOLDER, exist_ok=True)
 
 # ---------------------------
@@ -164,4 +165,5 @@ async def convert_daybook_ndjson(file: UploadFile = File(...)):
 # ---------------------------
 # Start server on Port 8001
 # ---------------------------
+
 
