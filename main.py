@@ -147,17 +147,16 @@ async def convert_daybook_ndjson(file: UploadFile = File(...)):
         out_file = file.filename.replace(".json", "") + ".ndjson"
         out_path = os.path.join(NDJSON_FOLDER, out_file)
 
+        # Write NDJSON file
         with open(out_path, "w", encoding="utf-8") as f:
-    for row in rows:
-        f.write(json.dumps(row, ensure_ascii=False) + "\n")
+            for row in rows:
+                f.write(json.dumps(row, ensure_ascii=False) + "\n")
 
-print("FULL NDJSON PATH:", os.path.abspath(out_path))  # <—— ADD THIS
-
-return {
-    "status": "success",
-    "rows_created": len(rows),
-    "ndjson_file": out_path
-}
+        return {
+            "status": "success",
+            "rows_created": len(rows),
+            "ndjson_file": out_path
+        }
 
     except Exception as e:
         return {"status": "error", "message": str(e)}
@@ -165,6 +164,4 @@ return {
 # ---------------------------
 # Start server on Port 8001
 # ---------------------------
-
-
 
